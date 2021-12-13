@@ -100,16 +100,12 @@ void loop() {
   }
   delay(1000);*/
   reset();
-  delay(500);
-  //UpdateServo(ankleR,145);
-  //UpdateServo(waistR,120);
-  delay(500);
-  
-  
+  //walk_forward();
+ 
+
 }
 //End of Main
 //----------------------------------------------------------------------------//
-
 //SERVO ZERO DEGREE
 //  1     105    Waist Left
 //  2     105    Waist Right
@@ -121,10 +117,6 @@ void loop() {
 //  8     120    Ankle Right
 //  9     110    Foot Left 
 //  10    30     Foot Right
-
-
-
-
 /*----------------------------------------------------------------------------
    ______ _    _ _   _  _____ _______ _____ ____  _   _  _____
   |  ____| |  | | \ | |/ ____|__   __|_   _/ __ \| \ | |/ ____|
@@ -142,15 +134,87 @@ void UpdateServo (int Id, int Angle) {
 
 void reset(){
   {
-    UpdateServo(1, 105);
-    UpdateServo(2, 105);
-    UpdateServo(3, 90);
-    UpdateServo(4, 90);
-    UpdateServo(5, 125);
-    UpdateServo(6, 115);
-    UpdateServo(7, 120);
-    UpdateServo(8, 120);
-    UpdateServo(9, 110);
-    UpdateServo(10, 30);
+    UpdateServo(1, 105); //WaistL
+    UpdateServo(2, 105); //WaistR
+    UpdateServo(3, 90); //HipL
+    UpdateServo(4, 90); //HipR
+    UpdateServo(5, 125); //KneeL
+    UpdateServo(6, 115); //KneeR
+    UpdateServo(7, 120); //AnkleL
+    UpdateServo(8, 120); //AnkleR
+    UpdateServo(9, 110); //FootL +
+    UpdateServo(10, 30); //FootR +
   }
+}
+
+void walk_forward(){
+  reset();
+  delay(500); //WaistR tilt & WaistL lift
+  UpdateServo(ankleR,130);
+  UpdateServo(waistR,92);
+  UpdateServo(waistL,92);
+  UpdateServo(hipL,80);
+  delay(500);
+  UpdateServo(ankleR,135);
+  UpdateServo(waistR,95);
+  UpdateServo(waistL,85);
+  UpdateServo(hipL,65);
+  delay(500);
+  UpdateServo(ankleR,145);
+  UpdateServo(waistR,90);
+  UpdateServo(hipL, 50);
+  delay(500);
+  UpdateServo(kneeL, 135); //Lifting Left Leg 
+  UpdateServo(footL, 120);
+  delay(500); 
+  UpdateServo(kneeL, 155);
+  ///UpdateServo(hipL, 75);
+  delay(500); 
+  UpdateServo(kneeL, 160);
+  delay(500); 
+  UpdateServo(ankleL,130); 
+  UpdateServo(footL, 110);
+  delay(500); 
+  UpdateServo(ankleR,120);
+  UpdateServo(waistR,105);
+  //UpdateServo(hipL, 90);
+  delay(500);
+  UpdateServo(kneeL,125); //Straighten Both Legs
+  UpdateServo(waistL,105);
+  delay(500);
+  UpdateServo(hipL,90);
+///////////////////////////////////////////////////////////////////////////////////////////////////// 
+//  delay(500); //WaistR tilt & WaistL lift
+//  UpdateServo(ankleL,130);
+//  UpdateServo(waistR,92);
+//  UpdateServo(waistR,92);
+//  UpdateServo(hipR,100);
+//  delay(500);
+//  UpdateServo(ankleL,135);
+//  UpdateServo(waistL,95);
+//  UpdateServo(waistR,85);
+//  UpdateServo(hipR,110);
+//  delay(500);
+//  UpdateServo(ankleL,145);
+//  UpdateServo(waistL,90);
+//  UpdateServo(hipR, 120);
+//  delay(500);
+//  UpdateServo(kneeR, 115); //Lifting Left Leg 
+//  UpdateServo(footR, 40);
+//  delay(500); 
+//  UpdateServo(kneeR, 100);
+//  delay(500); 
+//  UpdateServo(kneeR, 90);
+//  delay(500); 
+//  UpdateServo(hipR, 75);
+//  UpdateServo(ankleR,130); 
+//  UpdateServo(footR, 30);
+//  delay(500); 
+//  UpdateServo(hipL, 90);
+//  delay(500);
+//  UpdateServo(kneeR,125); //Straighten Both Legs
+//  UpdateServo(ankleL,120);
+//  UpdateServo(waistL,105);
+//  UpdateServo(waistR,105);
+//  delay(500);
 }
