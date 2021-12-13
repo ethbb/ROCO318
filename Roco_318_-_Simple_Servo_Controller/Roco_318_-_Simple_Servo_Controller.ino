@@ -82,24 +82,7 @@ void setup() {
   ----------------------------------------------------------------------------*/
 void loop() {
 
-  for (int ServoNumber = 1; ServoNumber <= 16; ServoNumber++) // set all servos to 90 degrees
-  {
-    UpdateServo(ServoNumber, 90);
-  }
-  delay(1000);
-
-  for (int ServoNumber = 1; ServoNumber <= 16; ServoNumber++) // set all servos to 80 degrees
-  {
-    UpdateServo(ServoNumber, 80);
-  }
-  delay(1000);
-
-  for (int ServoNumber = 1; ServoNumber <= 16; ServoNumber++ )// set all servos to 100 degrees
-  {
-    UpdateServo(ServoNumber, 100);
-  }
-  delay(1000);
-
+  reset();-
 
 }
 //End of Main
@@ -123,4 +106,12 @@ void UpdateServo (int Id, int Angle) {
   double pulselength = map(Angle, 0, 180, SERVOMIN, SERVOMAX); //map the degree value to pulselength value
   PCA9685.setPWM(Id, 0, pulselength); //Send the angle to the appropiate servo
 
+}
+
+void reset(){
+
+  for (int ServoNumber = 0; ServoNumber <= 15; ServoNumber++) // set all servos to 90 degrees
+  {
+    UpdateServo(ServoNumber, 90);
+  }
 }
