@@ -62,6 +62,18 @@ Adafruit_PWMServoDriver PCA9685 = Adafruit_PWMServoDriver();
 
 int ServoPositions[16][5]; //you can use this to make a 2D array of values for your 16 servos positions for each point of your walking gait
 
+#define waistL 1
+#define waistR 2
+#define hipL 3
+#define hipR 4
+#define kneeL 5
+#define kneeR 6
+#define ankleL 7
+#define ankleR 8
+#define footL 9
+#define footR 10
+
+
 //----------------------------------------------------------------------------//
 void setup() {
   Serial.begin(115200); //Nice faster speed
@@ -82,13 +94,33 @@ void setup() {
   ----------------------------------------------------------------------------*/
 void loop() {
 
-  reset();-
-
+  /*for (int ServoNumber = 0; ServoNumber <= 15; ServoNumber++) // set all servos to 90 degrees
+  {
+    UpdateServo(ServoNumber, 90);
+  }
+  delay(1000);*/
+  reset();
+  delay(500);
+  //UpdateServo(ankleR,145);
+  //UpdateServo(waistR,120);
+  delay(500);
+  
+  
 }
 //End of Main
 //----------------------------------------------------------------------------//
 
-
+//SERVO ZERO DEGREE
+//  1     105    Waist Left
+//  2     105    Waist Right
+//  3     90     Hip Left
+//  4     90     Hip Right
+//  5     125    Knee Left 
+//  6     115    Knee Right 
+//  7     120    Ankle Left 
+//  8     120    Ankle Right
+//  9     110    Foot Left 
+//  10    30     Foot Right
 
 
 
@@ -109,9 +141,16 @@ void UpdateServo (int Id, int Angle) {
 }
 
 void reset(){
-
-  for (int ServoNumber = 0; ServoNumber <= 15; ServoNumber++) // set all servos to 90 degrees
   {
-    UpdateServo(ServoNumber, 90);
+    UpdateServo(1, 105);
+    UpdateServo(2, 105);
+    UpdateServo(3, 90);
+    UpdateServo(4, 90);
+    UpdateServo(5, 125);
+    UpdateServo(6, 115);
+    UpdateServo(7, 120);
+    UpdateServo(8, 120);
+    UpdateServo(9, 110);
+    UpdateServo(10, 30);
   }
 }
