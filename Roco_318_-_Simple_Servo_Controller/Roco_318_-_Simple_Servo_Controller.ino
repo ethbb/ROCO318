@@ -103,8 +103,8 @@ void loop() {
 
   //walk_forward();
   //balance();
-  //sidewalk();
-   walk();
+  sidewalk();
+  //walk();
 
 
 
@@ -357,7 +357,7 @@ void balance() {
 
 void sidewalk() {
   delay(500);
-  UpdateServo(ankleR, 145);
+  UpdateServo(ankleR, 160);
   UpdateServo(waistL, 85);
   delay(500);
 }
